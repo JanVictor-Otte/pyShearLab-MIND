@@ -15,7 +15,7 @@ root_path = os.path.dirname(__file__)
 setup(
     name='pyShearLab-MIND',
 
-    version='0.0.1',
+    version='0.0.2',
 
     description='Fork of the original pyShearLab libarary with minimal alterations specifically for the pyMIND package',
 
