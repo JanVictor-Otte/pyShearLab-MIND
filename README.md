@@ -1,7 +1,9 @@
-# pyShearLab
+# pyShearLab-MIND
 pyShearLab is a Python toolbox which is based on [ShearLab3D](http://www3.math.tu-berlin.de/numerik/www.shearlab.org/software) written by [Rafael Reisenhofer](http://www.math.uni-bremen.de/~reisenho/) and has been ported to Python by Stefan Loock.
 
 Currently, pyShearLab only offers a two-dimensional subset of ShearLab3D which contains both 2D and 3D transforms.
+
+pyShearLab-MIND is a fork of the original package pyShearLab by Stefan Loock (see https://github.com/stefanloock/pyShearLab), created specifically for the use in the pyMIND package (see https://github.com/housenli/pyMIND). It only fixes one error in directional filter normalisation (see https://github.com/stefanloock/pyShearLab/pull/12) and is otherwise the same.
 
 ## Dependencies
 The toolbox needs the following Python packages in order to work properly:
@@ -14,13 +16,17 @@ The toolbox needs the following Python packages in order to work properly:
 pyShearLab2D has been developed and tested with Python 3.6 using the Anaconda package on Linux (Ubuntu 16.04.2 LTS), Windows 10 and Mac OS X (10.11-10.12). There are issues when using pyShearLab2d with Python 2.X.
 
 ## Installation
-You can simply download, unzip and use pyShearLab. Depending on your specific Python development environment, you may want to add the pyShearLab2D folder to your Python environment (Python Path). The dependencies can be installed using pip. If you use Anaconda, they are already installed.
-A pip package is currently _not_ available, but the package can be installed straight from github via:
+You can simply download, unzip and use pyShearLab-MIND. Depending on your specific Python development environment, you may want to add the pyShearLab2D folder to your Python environment (Python Path). The dependencies can be installed using pip. If you use Anaconda, they are already installed.
+You can install the MIND subset directly from PyPI:
 
-    pip install https://github.com/janvictor-otte/pyshearlab/archive/master.zip
+    pip install pyShearLab-MIND
+
+Alternatively, the package can be installed straight from github via:
+
+    pip install https://github.com/janvictor-otte/pyShearLab-MIND/archive/master.zip
 
 ## Usage
-In order to use pyShearLab you need to import it as a module, see pySLExampleDenoising.py as an example. The denoising example 
+In order to use pyShearLab-MIND you need to import it as a module, see pySLExampleDenoising.py as an example. The denoising example 
 provides all neccessary steps to understand how to use the toolbox. When using the transform in an iterative scheme, the 
 creation of shearlet system can be done in a pre-processing step which significantly speeds up the process.
 
@@ -34,3 +40,6 @@ on [ShearLab3D](http://www3.math.tu-berlin.de/numerik/www.shearlab.org/software)
 * [Nonsubsampled Contourlet Toolbox](https://www.mathworks.com/matlabcentral/fileexchange/10049-nonsubsampled-contourlet-toolbox): Copyright (c) 2004. Arthur L. da Cunha
 
 which have been translated to Python.
+
+## Subset Notice
+All credit for the original ShearLab and pyShearLab projects belongs to Rafael Reisenhofer and Stefan Loock.
