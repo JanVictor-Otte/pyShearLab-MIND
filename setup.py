@@ -11,7 +11,6 @@ from setuptools import setup, find_packages
 import os
 
 root_path = os.path.dirname(__file__)
-requires = open(os.path.join(root_path, 'requirements.txt')).readlines()
 
 setup(
     name='pyShearLab-MIND',
@@ -28,7 +27,6 @@ setup(
 
     packages=find_packages(where="src", exclude=['*test*']),
     package_dir={"": "src"},
-    install_requires=[r.strip() for r in requires],
     python_requires='>=3.6',
     install_requires=[
         "numpy",
