@@ -30,6 +30,12 @@ setup(
     package_dir={"": "src"},
     install_requires=[r.strip() for r in requires],
     python_requires='>=3.6',
+    install_requires=[
+        "numpy",
+        "scipy",
+        "matplotlib",
+        "Pillow"
+    ],
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
