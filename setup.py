@@ -26,8 +26,8 @@ setup(
     maintainer='Minimally Altered by Jan Victor Otte',
     license='GPL-3.0',
 
-    packages=find_packages(exclude=['*test*']),
-
+    packages=find_packages(where="src", exclude=['*test*']),
+    package_dir={"": "src"},
     install_requires=[r.strip() for r in requires],
     python_requires='>=3.6',
     classifiers=[
