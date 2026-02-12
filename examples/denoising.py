@@ -15,7 +15,7 @@ import numpy as np
 from scipy import ndimage as img
 from scipy import io as sio
 import matplotlib.pyplot as plt
-import pyshearlab
+import pyshearlab_mind
 
 tic()
 print("--SLExampleImageDenoising")
@@ -36,14 +36,14 @@ toc()
 tic()
 print("generating shearlet system...")
 ## create shearlets
-shearletSystem = pyshearlab.SLgetShearletSystem2D(0,X.shape[0], X.shape[1], scales)
+shearletSystem = pyshearlab_mind.SLgetShearletSystem2D(0,X.shape[0], X.shape[1], scales)
 
 toc()
 tic()
 print("decomposition, thresholding and reconstruction...")
 
 # decomposition
-coeffs = pyshearlab.SLsheardec2D(Xnoisy, shearletSystem)
+coeffs = pyshearlab_mind.SLsheardec2D(Xnoisy, shearletSystem)
 
 # thresholding
 oldCoeffs = coeffs.copy()
@@ -57,9 +57,9 @@ zero_indices = np.abs(coeffs) / (thresholdingFactor * weights * sigma) < 1
 coeffs[zero_indices] = 0
 
 # reconstruction
-Xrec = pyshearlab.SLshearrec2D(coeffs, shearletSystem)
+Xrec = pyshearlab_mind.SLshearrec2D(coeffs, shearletSystem)
 toc()
-PSNR = pyshearlab.SLcomputePSNR(X,Xrec)
+PSNR = pyshearlab_mind.SLcomputePSNR(X,Xrec)
 print("PSNR: " + str(PSNR))
 #sio.savemat("PyShearLab_DenoisingExample.mat", {"weights": weights, "XPyNoisy": Xnoisy,
 # "XPyDenoised": Xrec, "PyPSNR": PSNR, "coeffThrPy": coeffs, "oldCoeffs": oldCoeffs})

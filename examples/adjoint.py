@@ -15,7 +15,7 @@ import numpy as np
 from scipy import ndimage as img
 from scipy import io as sio
 import matplotlib.pyplot as plt
-import pyshearlab
+import pyshearlab_mind
 
 tic()
 print("--Testing adjoint")
@@ -36,21 +36,21 @@ toc()
 tic()
 print("generating shearlet system...")
 ## create shearlets
-shearletSystem = pyshearlab.SLgetShearletSystem2D(0,X.shape[0], X.shape[1], scales)
+shearletSystem = pyshearlab_mind.SLgetShearletSystem2D(0,X.shape[0], X.shape[1], scales)
 
 toc()
 tic()
 print("decomposition, thresholding and reconstruction...")
 
 # decomposition
-coeffs = pyshearlab.SLsheardec2D(Xnoisy, shearletSystem)
+coeffs = pyshearlab_mind.SLsheardec2D(Xnoisy, shearletSystem)
 
 # thresholding
 oldCoeffs = coeffs.copy()
 weights = np.ones(coeffs.shape)
 
 # reconstruction
-Xadj = pyshearlab.SLshearadjoint2D(coeffs, shearletSystem)
+Xadj = pyshearlab_mind.SLshearadjoint2D(coeffs, shearletSystem)
 
 # Validate adjoint equation
 print('<Ax, Ax> = {}, <x, AtAx> = {}, should be equal'.format(
